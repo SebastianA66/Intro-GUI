@@ -26,6 +26,18 @@ public class CharacterHandler : MonoBehaviour
     public int level;
     //max and current experience 
     public int maxExp, curExp;
+    //Skill point
+    public int skillPoint;
+    #endregion
+    [Header("Stats)")]
+    #region Stats
+    //Listing Each of the stats
+    public int Strength;
+    public int Dexterity;
+    public int Constitution;
+    public int Intelligence;
+    public int Wisdom;
+    public int Charisma;
     #endregion
     [Header("Camera Connection")]
     #region MiniMap
@@ -45,6 +57,11 @@ public class CharacterHandler : MonoBehaviour
         maxExp = 60;
         //connect the Character Controller to the controller variable
         controller = this.GetComponent<CharacterController>();
+
+        if (skillPoint = true)
+        {
+
+        }
     }
     #endregion
     #region Update
@@ -59,6 +76,8 @@ public class CharacterHandler : MonoBehaviour
             level++;
             //the maximum amount of experience is increased by 50
             maxExp += 50;
+            //Give a skill point on level up
+            skillPoint = +1;
         }
     }
     #endregion
@@ -88,29 +107,29 @@ public class CharacterHandler : MonoBehaviour
             Debug.Log("Disable on death");
         }
     }
-        #endregion
-        #region OnGUI
-        private void OnGUI()
-        {
-            //set up our aspect ratio for the GUI elements
-            //scrW - 16
-            float scrW = Screen.width / 16;
-            //scrH - 9
-            float scrH = Screen.height / 9;
-            //for (int x = 0; x < 16 x++)
-            //GUI Box on screen for the healthbar background
-            GUI.Box(new Rect(6*scrW, 0.25f* scrH,4* scrW,0.5f* scrH), "");
-            //GUI Box for current health that moves in same place as the background bar
-            //GUI.Box(new Rect(6 * scrW, 0.25f * scrH, curHealth(4 * scrW) / maxHealth, 0.25f * scrH), "" , healthBar);
-            //current Health divided by the posistion on screen and timesed by the total max health
-           // GUI.Box(new Rect(6 * scrW, 0.75f * scrH, curExp(4 * scrW)/maxExp, 0.25f * scrH), "");
+    #endregion
+    #region OnGUI
+    private void OnGUI()
+    {
+        //set up our aspect ratio for the GUI elements
+        //scrW - 16
+        float scrW = Screen.width / 16;
+        //scrH - 9
+        float scrH = Screen.height / 9;
+        //for (int x = 0; x < 16 x++)
+        //GUI Box on screen for the healthbar background
+        GUI.Box(new Rect(6 * scrW, 0.25f * scrH, 4 * scrW, 0.5f * scrH), "");
+        //GUI Box for current health that moves in same place as the background bar
+        //GUI.Box(new Rect(6 * scrW, 0.25f * scrH, curHealth(4 * scrW) / maxHealth, 0.25f * scrH), "" , healthBar);
+        //current Health divided by the posistion on screen and timesed by the total max health
+        //GUI.Box(new Rect(6 * scrW, 0.75f * scrH, curExp(4 * scrW)/maxExp, 0.25f * scrH), "");
         //GUI Box on screen for the experience background
         //GUI Box for current experience that moves in same place as the background bar
         //current experience divided by the posistion on screen and timesed by the total max experience
         //GUI Draw Texture on the screen that has the mini map render texture attached
-        GUI.DrawTexture(new Rect(13.75f*scrW, 0.25f*scrH, 2*scrW, 2*scrH), miniMap);
-        }
-        #endregion
+        GUI.DrawTexture(new Rect(13.75f * scrW, 0.25f * scrH, 2 * scrW, 2 * scrH), miniMap);
+    }
+    #endregion
 }
 
 
